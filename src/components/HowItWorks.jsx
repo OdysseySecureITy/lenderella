@@ -22,7 +22,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-20">
+    <section id="howItWorks" className="bg-white py-20">
       <div className="max-w-5xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">How It Works</h2>
         <p className="text-gray-600 mb-10 max-w-xl mx-auto">
@@ -34,7 +34,7 @@ export default function HowItWorks() {
             <React.Fragment key={index}>
               {/* Step card */}
               <div className="flex flex-col items-center text-center px-6 mt-10 mb-10 lg:mb-0">
-                <div className="text-indigo-600 text-4xl font-extrabold mb-2">
+                <div className="text-emerald-600 text-4xl font-extrabold mb-2">
                   {step.number}
                 </div>
                 <h3 className="font-semibold text-xl text-gray-800 mb-2">
@@ -50,12 +50,12 @@ export default function HowItWorks() {
                 <>
                   {/* Mobile/Tablet: vertical chevron centered */}
                   <div className="flex justify-center w-full lg:hidden my-2">
-                    <ChevronsDown className="text-indigo-400 w-6 h-6" />
+                    <ChevronsDown className="text-emerald-400 w-6 h-6" />
                   </div>
 
                   {/* Desktop: horizontal chevron between cards */}
                   <div className="hidden lg:flex justify-center items-center">
-                    <ChevronsRight className="text-indigo-400 w-6 h-6" />
+                    <ChevronsRight className="text-emerald-400 w-6 h-6" />
                   </div>
                 </>
               )}

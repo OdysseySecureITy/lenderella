@@ -28,14 +28,19 @@ const testimonials = [
   },
 ];
 
-
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {
-      setItemsPerSlide(window.innerWidth < 768 ? 1 : 3); // md breakpoint
+      if (window.innerWidth < 768) {
+        setItemsPerSlide(1); // mobile
+      } else if (window.innerWidth < 1024) {
+        setItemsPerSlide(2); // tablet
+      } else {
+        setItemsPerSlide(3); // desktop
+      }
     };
 
     handleResize(); // Run on mount
@@ -50,10 +55,17 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [itemsPerSlide]);
 
-  const visibleTestimonials = testimonials.slice(index, index + itemsPerSlide);
+  {/**Returns array of the same length as itemsPerSlied i.e 1,2 or 3;
+    wraps around the testimonials if index + itemsPerSlide exceeds the array length, 
+    so which gets the right number of testimonials per slide regradless of screen size
+     */}
+  const visibleTestimonials = Array.from({ length: itemsPerSlide }).map(
+    (_, i) => testimonials[(index + i) % testimonials.length]
+  );
+  //const visibleTestimonials = testimonials.slice(index, index + itemsPerSlide);
 
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden">
+    <section id="testimonials" className="py-16 bg-gray-50 overflow-hidden">
       <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
         What Our Clients Say
       </h2>
@@ -73,7 +85,7 @@ export default function Testimonials() {
                 className="w-[350px] h-[180px] bg-white p-6 rounded-xl shadow-md flex flex-col justify-between"
               >
                 <p className="italic text-gray-700">"{item.text}"</p>
-                <p className="text-sm font-semibold text-indigo-600 mt-4">
+                <p className="text-sm font-semibold text-emerald-600 mt-4">
                   {item.author}
                 </p>
               </div>

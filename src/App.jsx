@@ -4,8 +4,9 @@ import Hero from "./components/Hero";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
-import Services from "./components/Services";
+import Solutions from "./components/Solutions";
 import HowItWorks from "./components/HowItWorks";
+import FAQ from "./components/FAQ";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,7 +19,7 @@ function App() {
         <Hero/>
 
         {/* Services Section */}
-        <Services />
+        <Solutions />
 
         {/* How It Works Section */}
         <HowItWorks/>
@@ -27,6 +28,8 @@ function App() {
         
         <Testimonials/>
         
+        {/* FAQ Section */}
+        <FAQ/>
 
         {/* Call to Action Section */}
         <section id="cta" className="section text-center bg-indigo-600 text-white">
