@@ -26,13 +26,13 @@ export default function Header() {
           <img
             src={
               scrolled
-                ? "/transparent-logo-lenderella-black.svg"
-                : "/transparent-logo-lenderella-white.svg"
+                ? "/logo-black.svg"
+                : "/logo-white.svg"
             }
             alt="Lenderella Logo"
             className="h-8 w-8"
           />
-          <span className="text-2xl font-bold">Lenderella</span>
+          <span className="text-2xl font-bold">IncrediFund</span>
         </a>
 
         {/* Navigation */}
