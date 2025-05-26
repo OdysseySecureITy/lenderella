@@ -22,17 +22,17 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         {/* Logo + Brand */}
-        <a href="#" className="flex items-center space-x-2 cursor-pointer">
+        <a href="#" className="flex items-center  cursor-pointer">
           <img
             src={
               scrolled
                 ? "/logo-black.svg"
                 : "/logo-white.svg"
             }
-            alt="Lenderella Logo"
-            className="h-8 w-8"
+            alt="Incredifund Logo"
+            className="h-9 w-8 mr-[-10px] relative top-[-6px] "
           />
-          <span className="text-2xl font-bold">IncrediFund</span>
+          <span className="text-2xl font-bold">ncrediFund</span>
         </a>
 
         {/* Navigation */}
