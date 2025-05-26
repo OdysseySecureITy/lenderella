@@ -3,6 +3,7 @@ import "./App.css";
 import Hero from "./components/Hero";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
+import Testimonials from "./components/Testimonials";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -58,22 +59,9 @@ function App() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="section">
-          <h2 className="heading text-center">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              "Amazing experience. Funds in 24hrs!",
-              "Customer support was super helpful.",
-            ].map((quote, idx) => (
-              <div key={idx} className="bg-indigo-50 p-6 rounded-xl">
-                <p className="text-gray-700 italic">"{quote}"</p>
-                <p className="text-sm mt-2 font-semibold text-indigo-700">
-                  - Business Owner
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        
+        <Testimonials/>
+        
 
         {/* Call to Action Section */}
         <section id="cta" className="section text-center bg-indigo-600 text-white">

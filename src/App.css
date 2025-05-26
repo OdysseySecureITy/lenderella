@@ -41,3 +41,13 @@ html{
   height: 80px; /* height of your sticky header */
   margin-top: -80px;
 }
+
+
+/*Testimonials*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
