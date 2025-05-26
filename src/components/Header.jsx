@@ -1,7 +1,6 @@
 // import { useEffect, useState } from "react";
 // import {Menu, X} from "lucide-react";
 
-
 // export default function Header() {
 //   const [scrolled, setScrolled] = useState(false);
 //   const [menuOpen, setMenuOpen] = useState(false);
@@ -131,7 +130,13 @@ export default function Header() {
         {/* Desktop Navigation */}
         {/* md:flex */}
         <nav className="hidden lg:flex space-x-6 items-center">
-          {["solutions", "howItWorks", "testimonials", "mission", "contact"].map((section) => (
+          {[
+            "solutions",
+            "howItWorks",
+            "testimonials",
+            "mission",
+            "contact",
+          ].map((section) => (
             <a
               key={section}
               href={`#${section}`}
@@ -144,6 +149,10 @@ export default function Header() {
                 ? "How it Works"
                 : section === "contact"
                 ? "Contact"
+                : section === "solutions"
+                ? "Funding Solutions"
+                : section === "mission"
+                ? "Our mission"
                 : section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
           ))}
@@ -176,7 +185,13 @@ export default function Header() {
       {menuOpen && (
         <nav className="lg:hidden bg-white text-gray-900 shadow-md absolute top-full left-0 w-full z-40">
           <ul className="flex flex-col space-y-4 p-4">
-            {["solutions", "howItWorks", "testimonials", "mission", "contact"].map((section) => (
+            {[
+              "solutions",
+              "howItWorks",
+              "testimonials",
+              "mission",
+              "contact",
+            ].map((section) => (
               <li key={section}>
                 <a
                   href={`#${section}`}
@@ -187,6 +202,10 @@ export default function Header() {
                     ? "How it Works"
                     : section === "contact"
                     ? "Contact"
+                    : section === "solutions"
+                    ? "Funding Solutions"
+                    : section === "mission"
+                    ? "Our mission"
                     : section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
               </li>
