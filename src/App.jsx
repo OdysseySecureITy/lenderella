@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
+import Services from "./components/Services";
+import HowItWorks from "./components/HowItWorks";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,47 +18,10 @@ function App() {
         <Hero/>
 
         {/* Services Section */}
-        <section id="services" className="section">
-          <h2 className="heading text-center">Our Services</h2>
-          <p className="subheading text-center">
-            Flexible funding options tailored for your business needs
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {["Business Loans", "Equipment Financing", "Working Capital"].map(
-              (service, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{service}</h3>
-                  <p className="text-sm text-gray-600">
-                    Get competitive rates and terms designed for growth.
-                  </p>
-                </div>
-              )
-            )}
-          </div>
-        </section>
+        <Services />
 
         {/* How It Works Section */}
-        <section id="how-it-works" className="section bg-gray-50">
-          <h2 className="heading text-center">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {["Apply Online", "Get Approved", "Receive Funds"].map(
-              (step, idx) => (
-                <div key={idx} className="text-center p-6">
-                  <div className="text-4xl font-bold text-indigo-600 mb-2">
-                    {idx + 1}
-                  </div>
-                  <h4 className="text-xl font-semibold mb-1">{step}</h4>
-                  <p className="text-sm text-gray-600">
-                    It’s quick, easy, and fully online.
-                  </p>
-                </div>
-              )
-            )}
-          </div>
-        </section>
+        <HowItWorks/>
 
         {/* Testimonials Section */}
         
@@ -77,7 +42,7 @@ function App() {
         
         {/* Footer */}
         <footer className="bg-gray-900 text-gray-300 text-center py-6">
-          <p>&copy; 2025 Lenderella. All rights reserved.</p>
+          <p>&copy; 2025 IncrediFund. All rights reserved.</p>
         </footer>
       </main>
     </>

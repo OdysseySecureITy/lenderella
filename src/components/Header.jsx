@@ -46,14 +46,6 @@ export default function Header() {
             Services
           </a>
           <a
-            href="#how-it-works"
-            className={`hover:text-indigo-500 transition ${
-              scrolled ? "text-gray-800" : "text-white"
-            }`}
-          >
-            How It Works
-          </a>
-          <a
             href="#testimonials"
             className={`hover:text-indigo-500 transition ${
               scrolled ? "text-gray-800" : "text-white"
@@ -67,8 +59,9 @@ export default function Header() {
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >
-            Get Started
+            Contact Us
           </a>
+          
         </nav>
       </div>
     </header>

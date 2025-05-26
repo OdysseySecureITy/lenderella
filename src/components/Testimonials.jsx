@@ -23,10 +23,11 @@ const testimonials = [
     author: "— Olivia R., Marketing Agency Owner",
   },
   {
-    text: "Their process was quick and stress-free. I’ll definitely come back again!",
+    text: "After being denied a traditional credit line, Incredifund gave us the breathing room we needed with a simple, flexible solution we could draw from and repay as needed.",
     author: "— Leo B., Restaurant Owner",
   },
 ];
+
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -45,7 +46,7 @@ export default function Testimonials() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + itemsPerSlide) % testimonials.length);
-    }, 4000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [itemsPerSlide]);
 
@@ -64,12 +65,12 @@ export default function Testimonials() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex space-x-6"
+            className="flex space-x-6 min-h-[200px]"
           >
             {visibleTestimonials.map((item, idx) => (
               <div
                 key={idx}
-                className="w-[350px] bg-white p-6 rounded-xl shadow-md"
+                className="w-[350px] h-[180px] bg-white p-6 rounded-xl shadow-md flex flex-col justify-between"
               >
                 <p className="italic text-gray-700">"{item.text}"</p>
                 <p className="text-sm font-semibold text-indigo-600 mt-4">
