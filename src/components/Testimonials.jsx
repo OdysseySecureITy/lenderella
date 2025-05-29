@@ -15,7 +15,7 @@ const testimonials = [
     author: "— Maria L., Founder of Maria’s Boutique",
   },
   {
-    text: "Excellent customer service and quick approvals. Lenderella is my go-to for business financing.",
+    text: "Excellent customer service and quick approvals. InrediFund is my go-to for business financing.",
     author: "— James T., Freelance Consultant",
   },
   {

@@ -7,6 +7,7 @@ import Testimonials from "./components/Testimonials";
 import Solutions from "./components/Solutions";
 import HowItWorks from "./components/HowItWorks";
 import FAQ from "./components/FAQ";
+import Mission from "./components/Mission";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,9 @@ function App() {
         {/* Hero Section */}
         <Hero/>
 
+        {/*Our Missiona Section  */}
+        <Mission/>
+        
         {/* Services Section */}
         <Solutions />
 

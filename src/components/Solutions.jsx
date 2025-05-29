@@ -24,7 +24,7 @@ export default function Services() {
   return (
     <section id="solutions" className="py-20 bg-gray-50">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
-        Our Solutions
+        Funding Solutions
       </h2>
       <p className="text-center text-gray-600 mb-10">
         Flexible funding options tailored for your business needs
