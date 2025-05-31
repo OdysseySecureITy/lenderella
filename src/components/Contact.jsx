@@ -12,7 +12,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <form className="bg-white p-8 shadow-md rounded-lg space-y-6">
+          <form action="https://formspree.io/f/yourFormId" method="POST" className="bg-white p-8 shadow-md rounded-lg space-y-6">
             <div>
               <label
                 htmlFor="name"

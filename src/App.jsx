@@ -8,6 +8,7 @@ import Solutions from "./components/Solutions";
 import HowItWorks from "./components/HowItWorks";
 import FAQ from "./components/FAQ";
 import Mission from "./components/Mission";
+import Footer from "./components/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,9 +49,7 @@ function App() {
         <Contact/>
         
         {/* Footer */}
-        <footer className="bg-gray-900 text-gray-300 text-center py-6">
-          <p>&copy; 2025 IncrediFund. All rights reserved.</p>
-        </footer>
+        <Footer/>
       </main>
     </>
   );

@@ -2,7 +2,7 @@ export default function Mission() {
   return (
     <section
       id="mission"
-      className="py-16 px-4 md:px-10 lg:px-20 bg-white rounded-xl  border-gray-200"
+      className="py-14 px-4 md:px-10 lg:px-20 bg-white rounded-xl  border-gray-200"
     >
       <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">
         Our Mission
@@ -13,8 +13,8 @@ export default function Mission() {
       <div className="flex flex-col lg:flex-row items-center gap-10">
         <div className="w-full lg:w-1/2">
           <img
-            src="/colorful-shops.png" // Arpad Benedek
-            alt="Team collaboration"
+            src="/OurMissionPNG.png" // Arpad Benedek
+            alt="Shops Picture"
             className="rounded-xl w-full h-auto object-cover"
           />
         </div>
