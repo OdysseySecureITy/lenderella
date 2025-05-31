@@ -23,7 +23,7 @@ export default function Header() {
           : "bg-transparent text-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+      <div className="max-w-8xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         {/* Logo + Brand */}
         <a href="#" className="flex items-center cursor-pointer">
           <img
@@ -36,6 +36,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         {/* md:flex */}
+
         <nav className="hidden lg:flex space-x-6 items-center ml-auto">
           {[
             "mission",
@@ -52,8 +53,7 @@ export default function Header() {
                 scrolled ? "text-gray-800" : "text-white"
               } capitalize`}
             >
-              {
-                section === "mission"
+              {section === "mission"
                 ? "Our mission"
                 : section === "howItWorks"
                 ? "How it Works"
@@ -61,7 +61,6 @@ export default function Header() {
                 ? "Contact"
                 : section === "solutions"
                 ? "Funding Solutions"
-                
                 : section.charAt(0).toUpperCase() + section.slice(1)}
             </a>
           ))}

@@ -22,7 +22,7 @@ export default function Hero() {
           IncredIbly Fast, Flexible, Funding
         </h1>
         <h3 className=" italic text-4xl md:text-5xl font-bold max-w-3xl">
-          Business Lending Done Right 
+          Business Lending Done Right
         </h3>
         <ul className="text-lg md:text-xl mt-4 space-y-1">
           <li>Pre-qualification in minutes</li>
@@ -33,9 +33,12 @@ export default function Hero() {
           <button className="bg-emerald-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-medium transition">
             Get Started
           </button>
-          <button className="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-full font-medium transition">
+          <a
+            href="#contact"
+            className="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-full font-medium transition"
+          >
             Contact Us
-          </button>
+          </a>
         </div>
       </div>
     </section>
