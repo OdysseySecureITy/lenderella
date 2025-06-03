@@ -5,7 +5,7 @@ export default function Footer() {
         <p>&copy; 2025 IncrediFund. All rights reserved.</p>
         <div className="flex space-x-4">
           <a
-            href="https://www.termsfeed.com/live/32795216-ed45-4b76-a2af-7554e6ea4153"
+            href="https://www.termsfeed.com/live/e99b85d2-915e-46c4-9ddd-929e7eeb65f9"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"
@@ -13,7 +13,7 @@ export default function Footer() {
             Terms and Conditions
           </a>
           <a
-            href="https://www.termsfeed.com/live/4a7d4459-82d3-49cd-bd70-62be9477d9b5"
+            href="https://www.termsfeed.com/live/412ce65b-4524-405f-8740-dcdb492fe1b2"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white transition"

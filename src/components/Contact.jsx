@@ -1,4 +1,69 @@
+import { useState } from "react";
+import { Send } from "lucide-react";
+import { useEffect } from "react";
 export default function Contact() {
+  const [showToast, setShowToast] = useState(false); //toast message upon successful sending of the message
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({}); //errors
+  const [status, setStatus] = useState(""); // status
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
+    if (!formData.email.trim()) newErrors.email = "Email is required.";
+    else if (!emailRegex.test(formData.email))
+      newErrors.email = "Please enter a valid email address.";
+    if (!formData.message.trim())
+      newErrors.message = "Message cannot be empty.";
+    return newErrors;
+  };
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [e.target.id]: "" }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      console.log("Validation Errors:", validationErrors); // log
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("Your message has been sent.");
+        setFormData({ name: "", email: "", message: "" });
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
+      } else {
+        setStatus("Failed to send message. Please Try again");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("An error occurred while sending your message.");
+    }
+  };
+
+  useEffect(() => {
+    console.log("Errors state updated:", errors);
+  }, [errors]);
+
   return (
     <section id="contact" className="bg-gray-100 py-14">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -12,20 +77,30 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <form action="https://formspree.io/f/yourFormId" method="POST" className="bg-white p-8 shadow-md rounded-lg space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white p-8 shadow-md rounded-lg space-y-6 w-full"
+          >
             <div>
               <label
                 htmlFor="name"
                 className="block text-sm font-semibold text-gray-700"
               >
-                Name
+                Name*
               </label>
               <input
                 type="text"
                 id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600"
                 placeholder="Your Name"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                //required
               />
+              {errors.name && (
+                <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+              )}
             </div>
 
             <div>
@@ -33,14 +108,21 @@ export default function Contact() {
                 htmlFor="email"
                 className="block text-sm font-semibold text-gray-700"
               >
-                Email
+                Email*
               </label>
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600"
                 placeholder="you@example.com"
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                //required
               />
+              {errors.email && (
+                <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div>
@@ -48,23 +130,43 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-semibold text-gray-700"
               >
-                Message
+                Message*
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600"
                 placeholder="Your message..."
-                className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                //required
               />
+              {errors.message && (
+                <p className="text-sm text-red-500 mt-1">{errors.message}</p>
+              )}
             </div>
 
             <button
               type="submit"
-              className="bg-emerald-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition"
+              className="bg-emerald-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition w-full md:w-auto"
             >
               Send Message
             </button>
           </form>
+
+          {/* Toast message */}
+          {showToast && (
+            <div
+              className="fixed top-20 right-6 flex items-center fade-in w-full max-w-xs p-4 space-x-4 bg-white divide-x divide-gray-200 rounded-lg shadow-sm text-gray-700 z-50"
+              role="alert"
+            >
+              <Send className="w-5 h-5 text-emerald-600 rotate-45" />
+              <div className="ps-4 text-sm font-medium">
+                Message sent successfully.
+              </div>
+            </div>
+          )}
 
           {/* Contact Info + Business Hours */}
           <div className="flex flex-col justify-between">
