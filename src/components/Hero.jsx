@@ -1,4 +1,11 @@
 export default function Hero() {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative h-screen overflow-hidden text-white">
       {/* Background Video */}
@@ -13,7 +20,7 @@ export default function Hero() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay for darkening if needed */}
+      {/* Overlay for darkening */}
       <div className="absolute inset-0 bg-black/60 z-10"></div>
 
       {/* Content */}
@@ -30,15 +37,18 @@ export default function Hero() {
           <li>Funding range from $10K to $2M</li>
         </ul>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <button className="bg-emerald-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-medium transition">
+          <button
+            onClick={() => scrollToSection("apply")}
+            className="bg-emerald-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-medium transition"
+          >
             Get Started
           </button>
-          <a
-            href="#contact"
+          <button
+            onClick={() => scrollToSection("contact")}
             className="border border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-full font-medium transition"
           >
             Contact Us
-          </a>
+          </button>
         </div>
       </div>
     </section>
