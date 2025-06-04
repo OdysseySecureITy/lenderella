@@ -35,12 +35,15 @@ export default function Mission() {
             We don’t just lend — we listen, we guide, and we work with you like
             a true partner.
           </p>
-          <a
-            href="#contact"
+          <button
+            onClick={() => {
+              const section = document.getElementById("contact");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="inline-block mt-4 px-6 py-3 bg-emerald-600 text-white rounded-full hover:bg-green-700 transition"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       </div>
     </section>
