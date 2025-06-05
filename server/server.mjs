@@ -36,8 +36,14 @@ app.use(
         "https://embed.tawk.to/",
       ],
       frameSrc: ["'self'", "https://form.jotform.com/"],
-      connectSrc: ["'self'", "https://embed.tawk.to/", "https://va.tawk.to/"],
-      styleSrc: ["'self'", "'unsafe-inline'"], // If needed for Jotform/Tawk.to styling
+      connectSrc: [
+        "'self'",
+        "https://embed.tawk.to/",
+        "https://va.tawk.to/",
+        "wss://*.tawk.to/",
+      ],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://embed.tawk.to/"], // If needed for Jotform/Tawk.to styling
+      styleSrcElem: ["'self'", "'unsafe-inline'", "https://embed.tawk.to/"],
       imgSrc: ["'self'", "data:", "https://embed.tawk.to/"],
     },
   })
