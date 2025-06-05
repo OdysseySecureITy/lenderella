@@ -33,6 +33,7 @@ app.use(
       scriptSrc: [
         "'self'",
         "https://cdn.jotform.ms/",
+        "https://cdn.jotfor.ms",
         "https://embed.tawk.to/",
         "https://cdn.jsdelivr.net/",
       ],
