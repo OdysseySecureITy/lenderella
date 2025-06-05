@@ -36,7 +36,7 @@ app.use(
         "https://embed.tawk.to/",
       ],
       frameSrc: ["'self'", "https://form.jotform.com/"],
-      connectSrc: ["'self'", "https://embed.tawk.to/"],
+      connectSrc: ["'self'", "https://embed.tawk.to/", "https://va.tawk.to/"],
       styleSrc: ["'self'", "'unsafe-inline'"], // If needed for Jotform/Tawk.to styling
       imgSrc: ["'self'", "data:", "https://embed.tawk.to/"],
     },
