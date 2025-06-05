@@ -25,7 +25,24 @@ const corsOptions = {
   },
 };
 
-app.use(helmet())
+//security policies for helmet to have 3rd party tools to have permission on the website
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "https://cdn.jotform.ms/",
+        "https://embed.tawk.to/",
+      ],
+      frameSrc: ["'self'", "https://form.jotform.com/"],
+      connectSrc: ["'self'", "https://embed.tawk.to/"],
+      styleSrc: ["'self'", "'unsafe-inline'"], // If needed for Jotform/Tawk.to styling
+      imgSrc: ["'self'", "data:", "https://embed.tawk.to/"],
+    },
+  })
+);
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
@@ -33,9 +50,11 @@ app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: "All fields are required." });
+    return res
+      .status(400)
+      .json({ success: false, message: "All fields are required." });
   }
-  
+
   const msg = {
     to: "info@incredifund.com",
     from: "info@incredifund.com",
@@ -60,14 +79,17 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-
 // === Serve Frontend ===
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distPath = path.join(__dirname, "../dist");
 
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
+
 app.use(express.static(distPath));
 app.get("*", (req, res) => res.sendFile(path.join(distPath, "index.html")));
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
