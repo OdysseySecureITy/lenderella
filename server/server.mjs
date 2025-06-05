@@ -34,6 +34,7 @@ app.use(
         "'self'",
         "https://cdn.jotform.ms/",
         "https://embed.tawk.to/",
+        "https://cdn.jsdelivr.net/",
       ],
       frameSrc: ["'self'", "https://form.jotform.com/"],
       connectSrc: [
