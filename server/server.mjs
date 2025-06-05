@@ -9,7 +9,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
