@@ -59,10 +59,11 @@ export default function Contact() {
       setStatus("An error occurred while sending your message.");
     }
   };
-
-  useEffect(() => {
-    console.log("Errors state updated:", errors);
-  }, [errors]);
+  
+ // # For Debugging Purposes
+  // useEffect(() => {
+  //  console.log("Errors state updated:", errors);
+  // }, [errors]);
 
   return (
     <section id="contact" className="bg-gray-100 py-14">
