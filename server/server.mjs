@@ -46,7 +46,7 @@ app.use(
       ],
       styleSrc: ["'self'", "'unsafe-inline'", "https://embed.tawk.to/"], // If needed for Jotform/Tawk.to styling
       styleSrcElem: ["'self'", "'unsafe-inline'", "https://embed.tawk.to/"],
-      imgSrc: ["'self'", "data:", "https://embed.tawk.to/"],
+      imgSrc: ["'self'", "data:", "https://embed.tawk.to/", "https://cdn.jsdelivr.net/"],
     },
   })
 );
