@@ -4,9 +4,9 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import bodyParser from "body-parser";
-import sgMail from "@sendgrid/mail";
 import path from "path";
 import { fileURLToPath } from "url";
+import { Resend } from "resend";
 import fs from "fs";
 
 
@@ -14,9 +14,9 @@ const app = express();
 const PORT = process.env.PORT;
 
 //const PORT = process.env.PORT || 8080; last version
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const allowedOrigins = ["https://incredifund.com", undefined];
+const allowedOrigins = ["https://incredifund.com"];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -61,32 +61,23 @@ app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res
-      .status(400)
-      .json({ success: false, message: "All fields are required." });
+    return res.status(400).json({ success: false, message: "All fields are required." });
   }
 
-  const msg = {
-    to: "info@incredifund.com",
-    from: "info@incredifund.com",
-    subject: `New message from ${name}`,
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-    `,
-  };
-
   try {
-    await sgMail.send(msg);
-    res
-      .status(200)
-      .json({ success: true, message: "Message sent successfully." });
+    const response = await resend.emails.send({
+      from: "info@incredifund.com", 
+      to: "info@incredifund.com",
+      subject: `New message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    });
+
+    console.log("Resend response:", response);
+    res.status(200).json({ success: true, message: "Message sent successfully." });
+
   } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ success: false, message: "Failed to send message." });
+    console.error("Resend error:", error);
+    res.status(500).json({ success: false, message: "Failed to send message." });
   }
 });
 
