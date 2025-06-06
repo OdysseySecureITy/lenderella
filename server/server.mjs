@@ -11,8 +11,9 @@ import fs from "fs";
 
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
+//const PORT = process.env.PORT || 8080; last version
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const allowedOrigins = ["https://incredifund.com"];
