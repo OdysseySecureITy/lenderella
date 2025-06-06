@@ -194,7 +194,8 @@ export default function Contact() {
                 info@incredifund.com
               </a>
 
-              <div className="mt-6">
+              {/*Commented out for now cuz phone is not setup  */}
+              {/* <div className="mt-6">
                 <a
                   href="https://wa.me/15612955316"
                   target="_blank"
@@ -203,7 +204,7 @@ export default function Contact() {
                 >
                   Message us on WhatsApp
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <div className="mt-10">
