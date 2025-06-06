@@ -16,7 +16,7 @@ const PORT = process.env.PORT;
 //const PORT = process.env.PORT || 8080; last version
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const allowedOrigins = ["https://incredifund.com"];
+const allowedOrigins = ["https://incredifund.com", undefined];
 
 const corsOptions = {
   origin: function (origin, callback) {
