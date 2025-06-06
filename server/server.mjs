@@ -65,7 +65,7 @@ app.post("/api/contact", async (req, res) => {
 
   const msg = {
     to: "info@incredifund.com",
-    from: "em6111.incredifund.com",
+    from: "info@em6111.incredifund.com",
     subject: `New message from ${name}`,
     text: `
       Name: ${name}
