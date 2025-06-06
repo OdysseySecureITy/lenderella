@@ -7,6 +7,8 @@ import bodyParser from "body-parser";
 import sgMail from "@sendgrid/mail";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -92,6 +94,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distPath = path.join(__dirname, "../dist");
 
+if (!fs.existsSync(distPath)) {
+  console.error("Static directory not found");
+}else{
+  console.log("static directory found");
+}
 app.use((req, res, next) => {
   console.log(`Incoming request: ${req.method} ${req.url}`);
   next();
