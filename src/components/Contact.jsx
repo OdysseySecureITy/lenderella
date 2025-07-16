@@ -176,7 +176,7 @@ export default function Contact() {
                 IncrediFund
               </h3>
               <p className="text-gray-600 mb-4">
-                West Palm Beach, Florida 33409, United States
+                West Palm Beach, Florida 33418, United States
               </p>
               <p className="text-sm font-semibold text-gray-700">Phone:</p>
               <a
