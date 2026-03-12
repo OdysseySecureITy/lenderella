@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300 py-6">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm space-y-2 md:space-y-0">
-        <p>&copy; 2025 IncrediFund. All rights reserved.</p>
+        <p>&copy; 2026 IncrediFund. All rights reserved.</p>
         <div className="flex space-x-4">
           <a
             href="https://www.termsfeed.com/live/e99b85d2-915e-46c4-9ddd-929e7eeb65f9"
