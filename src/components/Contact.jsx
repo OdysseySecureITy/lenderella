@@ -183,7 +183,7 @@ export default function Contact() {
                 href="tel:15612955316"
                 className="text-indigo-600 hover:underline"
               >
-                (561) 295-5316
+                (561) 876-5957
               </a>
 
               <p className="mt-4 text-sm font-semibold text-gray-700">Email:</p>
