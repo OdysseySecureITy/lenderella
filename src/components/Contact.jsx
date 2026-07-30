@@ -180,7 +180,7 @@ export default function Contact() {
               </p>
               <p className="text-sm font-semibold text-gray-700">Phone:</p>
               <a
-                href="tel:15612955316"
+                href="tel:15618765957"
                 className="text-indigo-600 hover:underline"
               >
                 (561) 876-5957
